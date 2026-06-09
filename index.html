@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dry Clean Express, Fullerton, CA</title>
+<meta name="description" content="Dry Clean Express in Fullerton, CA. Dry cleaning, laundry, and alterations done right since the neighborhood needed it. 322 N Euclid St.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a2620;
+    --paper:#f6f3ec;
+    --steam:#e8e3d7;
+    --press:#0e5c4a;      /* deep pressed green */
+    --press-deep:#0a4438;
+    --tag:#c2492f;        /* claim-ticket red */
+    --tag-soft:#d96a4f;
+    --line:#d5cfc0;
+    --muted:#5a6660;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.05;letter-spacing:-0.01em}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  a{color:inherit}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--press-deep);
+    color:#eef3f0;
+    font-size:.82rem;
+    letter-spacing:.04em;
+  }
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:42px;flex-wrap:wrap}
+  .topbar a{text-decoration:none;opacity:.92}
+  .topbar a:hover{opacity:1}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,243,236,.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:72px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand .mark{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--press);
+    display:grid;place-items:center;
+    color:#f6f3ec;font-family:'Fraunces',serif;font-size:1.1rem;
+    flex-shrink:0;
+  }
+  .brand b{font-family:'Fraunces',serif;font-weight:600;font-size:1.18rem;letter-spacing:-.01em}
+  .brand span{display:block;font-family:'Inter';font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:-2px}
+  .navlinks{display:flex;gap:30px;align-items:center}
+  .navlinks a{text-decoration:none;font-size:.92rem;color:var(--muted);transition:color .2s}
+  .navlinks a:hover{color:var(--ink)}
+  .navlinks .cta{
+    background:var(--tag);color:#fff;padding:9px 18px;border-radius:2px;
+    font-weight:500;letter-spacing:.01em;
+  }
+  .navlinks .cta:hover{background:var(--tag-soft)}
+  .navtoggle{display:none}
+
+  /* ---------- hero ---------- */
+  header.hero{
+    position:relative;overflow:hidden;
+    padding:84px 0 92px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--tag);font-weight:600;margin-bottom:22px;
+  }
+  .hero h1{font-size:clamp(2.7rem,6vw,4.4rem);margin-bottom:22px}
+  .hero h1 em{font-style:italic;color:var(--press)}
+  .hero p.lede{font-size:1.12rem;color:var(--muted);max-width:30ch;margin-bottom:32px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;text-decoration:none;padding:13px 26px;border-radius:2px;
+    font-weight:500;font-size:.95rem;transition:.2s;
+  }
+  .btn-primary{background:var(--press);color:#f6f3ec}
+  .btn-primary:hover{background:var(--press-deep)}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+  /* claim ticket signature element */
+  .ticket{
+    background:#fff;
+    border:1px solid var(--line);
+    box-shadow:0 22px 48px -28px rgba(14,92,74,.5);
+    position:relative;
+    transform:rotate(1.4deg);
+  }
+  .ticket::before,.ticket::after{
+    content:"";position:absolute;width:18px;height:18px;border-radius:50%;
+    background:var(--paper);border:1px solid var(--line);
+  }
+  .ticket::before{left:-10px;top:50%;transform:translateY(-50%)}
+  .ticket::after{right:-10px;top:50%;transform:translateY(-50%)}
+  .ticket .perf{border-bottom:1px dashed var(--line);padding:18px 26px;display:flex;justify-content:space-between;align-items:baseline}
+  .ticket .perf small{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .ticket .perf .no{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--tag)}
+  .ticket .body{padding:24px 26px}
+  .ticket .row{display:flex;justify-content:space-between;font-size:.9rem;padding:7px 0;border-bottom:1px solid #f0ece1}
+  .ticket .row:last-child{border-bottom:0}
+  .ticket .row span:first-child{color:var(--muted)}
+  .ticket .row span:last-child{font-weight:500}
+  .ticket .stamp{
+    margin:8px 26px 22px;text-align:center;
+    border:2px solid var(--press);color:var(--press);
+    font-family:'Fraunces',serif;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    padding:8px;border-radius:2px;transform:rotate(-2deg);opacity:.85;
+  }
+
+  /* ---------- band ---------- */
+  .band{background:var(--press);color:#eef3f0;padding:18px 0}
+  .band .wrap{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;font-size:.9rem;letter-spacing:.02em}
+  .band b{font-family:'Fraunces',serif;font-weight:500}
+
+  /* ---------- sections ---------- */
+  section{padding:88px 0}
+  .sec-head{margin-bottom:48px;max-width:54ch}
+  .sec-head .eyebrow{margin-bottom:16px}
+  .sec-head h2{font-size:clamp(2rem,4vw,2.8rem)}
+  .sec-head p{color:var(--muted);margin-top:14px;font-size:1.05rem}
+
+  /* services */
+  .services{background:var(--steam)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .svc{background:var(--paper);padding:34px 30px;transition:background .25s}
+  .svc:hover{background:#fff}
+  .svc .ic{width:40px;height:40px;color:var(--press);margin-bottom:18px}
+  .svc h3{font-size:1.3rem;margin-bottom:10px}
+  .svc p{color:var(--muted);font-size:.95rem}
+
+  /* pricing */
+  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 56px;margin-top:8px}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding:14px 0}
+  .price-row .item{font-size:1rem}
+  .price-row .item small{display:block;color:var(--muted);font-size:.8rem}
+  .price-row .amt{font-family:'Fraunces',serif;font-size:1.25rem;color:var(--press)}
+  .price-note{margin-top:30px;font-size:.85rem;color:var(--muted);font-style:italic}
+
+  /* about / promise */
+  .promise{background:var(--ink);color:var(--paper)}
+  .promise .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .promise .eyebrow{color:var(--tag-soft)}
+  .promise h2{font-size:clamp(2rem,4vw,2.7rem);color:#fff}
+  .promise p{color:#bfc7c2;margin-top:18px;font-size:1.05rem}
+  .promise blockquote{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;line-height:1.4;
+    color:#fff;border-left:2px solid var(--tag);padding-left:24px;
+  }
+  .promise blockquote footer{font-family:'Inter';font-style:normal;font-size:.85rem;color:#9aa5a0;margin-top:14px;letter-spacing:.04em}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .hours-list{list-style:none}
+  .hours-list li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:.98rem}
+  .hours-list li.closed span:last-child{color:var(--tag)}
+  .hours-list li.today{font-weight:600}
+  .hours-list li.today::before{content:"●";color:var(--press);margin-right:8px;font-size:.6rem;vertical-align:middle}
+  .contact-card{background:#fff;border:1px solid var(--line);padding:34px}
+  .contact-card .line{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #f0ece1}
+  .contact-card .line:last-child{border-bottom:0}
+  .contact-card .line .ic{width:20px;height:20px;color:var(--press);flex-shrink:0;margin-top:3px}
+  .contact-card .line small{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .contact-card .line a,.contact-card .line span{text-decoration:none;font-size:1.02rem}
+  .map{margin-top:18px;border:1px solid var(--line)}
+  .map iframe{display:block;width:100%;height:230px;border:0;filter:grayscale(.3) contrast(1.05)}
+
+  /* footer */
+  footer{background:var(--press-deep);color:#cfdad5;padding:54px 0 30px;font-size:.9rem}
+  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+  footer .brand .mark{background:var(--paper);color:var(--press-deep)}
+  footer .brand b{color:#fff}
+  footer h4{font-family:'Inter';font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#8fa39b;margin-bottom:16px}
+  footer a{display:block;text-decoration:none;padding:5px 0;opacity:.9}
+  footer a:hover{opacity:1;color:#fff}
+  footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;color:#8fa39b}
+
+  /* responsive */
+  @media(max-width:860px){
+    .hero-grid,.promise .wrap,.visit-grid{grid-template-columns:1fr;gap:40px}
+    .svc-grid{grid-template-columns:1fr}
+    .price-grid{grid-template-columns:1fr;gap:0}
+    .ticket{transform:rotate(0);max-width:360px;margin:0 auto}
+    footer .wrap{grid-template-columns:1fr 1fr}
+    .navlinks{display:none}
+    .navlinks.open{
+      display:flex;position:absolute;top:72px;left:0;right:0;
+      flex-direction:column;background:var(--paper);padding:20px 28px;gap:18px;
+      border-bottom:1px solid var(--line);
+    }
+    .navtoggle{display:block;background:none;border:0;font-size:1.5rem;cursor:pointer;color:var(--ink)}
+  }
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+  :focus-visible{outline:2px solid var(--tag);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>322 N Euclid St · Fullerton, CA 92832</span>
+    <a href="tel:+17146800820">Call (714) 680-0820</a>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark">D</span>
+      <span><b>Dry Clean Express</b><span>Fullerton, California</span></span>
+    </a>
+    <button class="navtoggle" aria-label="Menu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="navlinks" id="nl">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#promise">Our Promise</a>
+      <a href="#visit">Hours &amp; Location</a>
+      <a class="cta" href="tel:+17146800820">Call Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Neighborhood cleaners · Euclid St</div>
+      <h1>Dropped off today,<br>back <em>ready to wear.</em></h1>
+      <p class="lede">Dry cleaning, laundry, and on-site alterations, handled with care and turned around fast.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+17146800820">Call to schedule</a>
+        <a class="btn btn-ghost" href="#services">See what we do</a>
+      </div>
+    </div>
+    <div>
+      <div class="ticket" role="img" aria-label="Example claim ticket">
+        <div class="perf">
+          <small>Claim Ticket</small>
+          <span class="no">№ 4821</span>
+        </div>
+        <div class="body">
+          <div class="row"><span>2 dress shirts</span><span>Press</span></div>
+          <div class="row"><span>1 wool suit</span><span>Clean</span></div>
+          <div class="row"><span>Trouser hem</span><span>Alter</span></div>
+          <div class="row"><span>Ready by</span><span>Thu · 5 PM</span></div>
+        </div>
+        <div class="stamp">Same-day available</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="band">
+  <div class="wrap">
+    <span><b>Same-day</b> dry cleaning</span>
+    <span><b>In-house</b> alterations</span>
+    <span><b>Eco</b> cleaning process</span>
+    <span><b>Family</b> owned &amp; operated</span>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What we do</div>
+      <h2>Everything your closet needs, under one roof.</h2>
+      <p>From everyday shirts to the suit you can't be late in, we treat each piece like it's the only one on the rack.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l4 3-2 2v3l3 9H7l3-9V8L8 6l4-3z"/></svg>
+        <h3>Dry Cleaning</h3>
+        <p>Suits, dresses, coats, and delicates cleaned and pressed to a crisp finish. Same-day when you need it.</p>
+      </div>
+      <div class="svc">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9h16M8 13h8M8 16h5"/></svg>
+        <h3>Laundry &amp; Press</h3>
+        <p>Shirts laundered, starched to your liking, and folded or hung. Wash-and-fold by the pound, too.</p>
+      </div>
+      <div class="svc">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="3"/><circle cx="7" cy="17" r="3"/><path d="M9 9l11 9M9 15L20 6"/></svg>
+        <h3>Alterations</h3>
+        <p>Hems, waistbands, zippers, and tailoring done in-house. Bring it in and we'll fit it right.</p>
+      </div>
+      <div class="svc">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h12l-1 6H7L6 4zM5 10h14v9a1 1 0 01-1 1H6a1 1 0 01-1-1v-9z"/></svg>
+        <h3>Comforters &amp; Bedding</h3>
+        <p>Down comforters, duvets, and blankets cleaned fresh, back looking and smelling like new.</p>
+      </div>
+      <div class="svc">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c3 4 5 6 5 9a5 5 0 01-10 0c0-3 2-5 5-9z"/></svg>
+        <h3>Stain Treatment</h3>
+        <p>Tough spots, spills, and set-in stains treated by hand before cleaning, not just run through a machine.</p>
+      </div>
+      <div class="svc">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z"/><path d="M9 11l2 2 4-4"/></svg>
+        <h3>Wedding &amp; Specialty</h3>
+        <p>Gown cleaning and preservation, leather, suede, and the pieces you'd rather not trust to anyone else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>Fair prices, no surprises at pickup.</h2>
+      <p>A few of our most common items. Ask at the counter for anything not listed and we'll quote it before we start.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-row"><div class="item">Dress shirt <small>laundered &amp; pressed</small></div><div class="amt">$3.50</div></div>
+      <div class="price-row"><div class="item">Pants / slacks <small>dry cleaned &amp; pressed</small></div><div class="amt">$7</div></div>
+      <div class="price-row"><div class="item">Two-piece suit <small>cleaned &amp; pressed</small></div><div class="amt">$14</div></div>
+      <div class="price-row"><div class="item">Dress <small>standard, dry clean</small></div><div class="amt">$12+</div></div>
+      <div class="price-row"><div class="item">Comforter <small>any size</small></div><div class="amt">$30+</div></div>
+      <div class="price-row"><div class="item">Pant hem <small>basic alteration</small></div><div class="amt">$12</div></div>
+      <div class="price-row"><div class="item">Coat / jacket <small>dry cleaned</small></div><div class="amt">$15+</div></div>
+      <div class="price-row"><div class="item">Wash &amp; fold <small>per pound</small></div><div class="amt">$2/lb</div></div>
+    </div>
+    <p class="price-note">Sample pricing for illustration. Final pricing confirmed at drop-off.</p>
+  </div>
+</section>
+
+<section class="promise" id="promise">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Why neighbors keep coming back</div>
+      <h2>We learn your name before we learn your order.</h2>
+      <p>A small shop on Euclid that's earned its regulars the slow way: careful work, honest turnaround, and someone behind the counter who actually remembers you.</p>
+    </div>
+    <div>
+      <blockquote>
+        “My clothes are always back on time, and when I'm in a bind, they're kind enough to rush my order.”
+        <footer>Longtime Fullerton customer</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Stop by</div>
+      <h2>Hours &amp; location</h2>
+    </div>
+    <div class="visit-grid">
+      <div>
+        <ul class="hours-list" id="hours">
+          <li data-day="1"><span>Monday</span><span>8:00 AM – 7:00 PM</span></li>
+          <li data-day="2"><span>Tuesday</span><span>8:00 AM – 7:00 PM</span></li>
+          <li data-day="3"><span>Wednesday</span><span>8:00 AM – 7:00 PM</span></li>
+          <li data-day="4"><span>Thursday</span><span>8:00 AM – 7:00 PM</span></li>
+          <li data-day="5"><span>Friday</span><span>8:00 AM – 7:00 PM</span></li>
+          <li data-day="6"><span>Saturday</span><span>9:00 AM – 5:00 PM</span></li>
+          <li data-day="0" class="closed"><span>Sunday</span><span>Closed</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="contact-card">
+          <div class="line">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><small>Address</small><span>322 N Euclid St, Fullerton, CA 92832</span></div>
+          </div>
+          <div class="line">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-3 2a12 12 0 005 5l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
+            <div><small>Phone</small><a href="tel:+17146800820">(714) 680-0820</a></div>
+          </div>
+          <div class="line">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><small>Today</small><span id="today-status">...</span></div>
+          </div>
+        </div>
+        <div class="map">
+          <iframe loading="lazy" title="Map to Dry Clean Express"
+            src="https://www.google.com/maps?q=322+N+Euclid+St,+Fullerton,+CA+92832&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top" style="text-decoration:none">
+        <span class="mark">D</span>
+        <span><b>Dry Clean Express</b><span style="color:#8fa39b">Fullerton, California</span></span>
+      </a>
+      <p style="margin-top:16px;max-width:34ch;color:#9aa5a0;font-size:.85rem">Your neighborhood cleaner on Euclid Street. Careful work, fast turnaround, friendly faces.</p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#visit">Hours &amp; Location</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:+17146800820">(714) 680-0820</a>
+      <a href="https://www.google.com/maps?q=322+N+Euclid+St,+Fullerton,+CA+92832" target="_blank" rel="noopener">Get directions</a>
+    </div>
+    <div class="legal">
+      <span>© <span id="year"></span> Dry Clean Express. All rights reserved.</span>
+      <span>Fullerton, CA · Family owned</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Highlight today's hours + status
+  (function(){
+    var now = new Date();
+    var day = now.getDay();
+    var items = document.querySelectorAll('#hours li');
+    var openHours = {1:[8,19],2:[8,19],3:[8,19],4:[8,19],5:[8,19],6:[9,17]};
+    items.forEach(function(li){
+      if (parseInt(li.dataset.day,10) === day) li.classList.add('today');
+    });
+    var status = document.getElementById('today-status');
+    var h = now.getHours() + now.getMinutes()/60;
+    if (openHours[day] && h >= openHours[day][0] && h < openHours[day][1]) {
+      status.textContent = 'Open now · closes ' + (openHours[day][1]-12) + ' PM';
+      status.style.color = '#0e5c4a';
+    } else {
+      status.textContent = 'Closed right now';
+      status.style.color = '#c2492f';
+    }
+  })();
+</script>
+</body>
+</html>
